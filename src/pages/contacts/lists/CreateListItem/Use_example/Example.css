@@ -1,0 +1,10 @@
+.ant-table-cell::before {
+    content: none !important;
+  }
+  .tooltip{
+    position: absolute;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  }

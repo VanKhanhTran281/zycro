@@ -1,0 +1,23 @@
+#root{
+    height: 800px;
+}
+.dropdown-menu{
+    display: flex;
+}
+.shopee-svg-icon {
+    stroke: currentColor;
+    width: 1em;
+    fill: currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.8);
+    height: 1.875rem;
+    font-weight: 500;
+}
+.icon-arrow-down{
+    font-size: 0.65rem;
+    margin-left: 5px;
+    padding-top: 3px;
+}
