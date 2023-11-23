@@ -1,0 +1,12 @@
+.carditem_connect{
+    width:  268px;
+    height: 179px;
+    border-radius: 12px;
+    border: 1px solid #E0E4F0;
+    padding: 20px;
+    gap: 16px;
+    padding-left: 20px;
+}
+.buttonconnect:hover{
+    background: #e6f4ff !important;
+}

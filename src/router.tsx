@@ -8,6 +8,9 @@ import LandingPage from "./pages/LandingPage";
 import Segment from "./pages/contacts/segment";
 import CreateLists from "./pages/contacts/lists/createList";
 import ExampleList from "./pages/contacts/lists/CreateListItem/Use_example/ExampleList";
+import Connect from "./pages/contacts/lists/CreateListItem/Connect/Connect";
+import ConnectToZapier from "./pages/contacts/lists/CreateListItem/Connect/Connect_to_z";
+import UploadContacts from "./pages/contacts/lists/CreateListItem/Upload/UploadContact";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +49,19 @@ export const router = createBrowserRouter([
         path: "/examplelist",
         element: <ExampleList />,
       },
+      {
+        path: "/uploadcontact",
+        element: <UploadContacts />,
+      },
+      {
+        path: "/connect",
+        element: <Connect />,
+      },
+      {
+        path: "/connecttozapier",
+        element: <ConnectToZapier />,
+      },
+      
     ],
   },
 ]);

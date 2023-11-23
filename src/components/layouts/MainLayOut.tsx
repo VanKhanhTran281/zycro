@@ -110,8 +110,8 @@ const MainLayout: React.FC = () => {
 
                                 <div className="dropdown-menu">
                                     <svg style={{ marginLeft: '-15px' }} width="40" height="84" viewBox="0 0 40 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M23 12V20C23 22.2091 24.7909 24 27 24H31" stroke="#ABB4C2" stroke-linecap="round" />
-                                        <path d="M23 12V66C23 68.2091 24.7909 70 27 70H31" stroke="#ABB4C2" stroke-linecap="round" />
+                                        <path d="M23 12V20C23 22.2091 24.7909 24 27 24H31" stroke="#ABB4C2" strokeLinecap="round" />
+                                        <path d="M23 12V66C23 68.2091 24.7909 70 27 70H31" stroke="#ABB4C2" strokeLinecap="round" />
                                     </svg>
                                     <div style={{ display: 'grid', marginLeft: '8px' }}>
                                         <Link

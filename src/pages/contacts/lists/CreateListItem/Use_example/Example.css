@@ -1,10 +1,22 @@
 .ant-table-cell::before {
-    content: none !important;
-  }
-  .tooltip{
-    position: absolute;
+  content: none !important;
+}
+
+.tooltip {
+  position: absolute;
   background-color: black;
   color: white;
   padding: 5px;
-  border-radius: 5px;
-  }
+  border-radius: 4px;
+  width: 42px;
+  height: 21px;
+  margin-top: -55px;
+}
+
+.your-table {
+  border-left: 1px solid rgb(224, 228, 240);
+  border-right: 1px solid rgb(224, 228, 240);
+  border-bottom: 1px solid rgb(224, 228, 240);
+  border-top: 1px solid rgb(224, 228, 240);
+  border-radius: 8px;
+}
