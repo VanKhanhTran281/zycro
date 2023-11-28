@@ -44,9 +44,9 @@ const MainLayout: React.FC = () => {
     };
     return (
         <div style={{ display: 'flex' }}>
-            <header>
-                <div style={{ width: '220px', height: '800px', backgroundColor: '#f1f2f269', paddingLeft: "15px ", paddingTop: '10px' }}>
-                    <div style={{ display: 'grid', marginRight: '19px', fontWeight: '600' }}>
+            <header style={{ width: '220px', height: '800px', backgroundColor: '#f1f2f269' }}>
+                <div >
+                    <div style={{ display: 'grid', marginRight: '19px', fontWeight: '600', paddingLeft: "15px ", paddingTop: '10px' }}>
                         <div style={{ marginLeft: '-13px' }}><img src={logo} alt="" /></div>
                         <div style={{ display: 'grid', marginTop: '30px', borderBottom: '1px solid #E0E4F0' }}>
                             <Link
@@ -97,8 +97,8 @@ const MainLayout: React.FC = () => {
                                         13.5 11.5 13.5H6.5C5.80964 13.5 5.25 12.9404 5.25 12.25C5.25 10.8693 6.36929 9.75 7.75 9.75H10.25Z" fill="#0068B9" />
                                     </svg>
                                     <p style={{ marginLeft: '5px', height: '18px' }}>Contacts</p>
-                                    <div style={{ marginLeft: '75px', marginTop: '6px', transform: isDropdownOpen ? 'rotate(180deg)' : 'none' }}>
-                                        <svg enableBackground="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" className="shopee-svg-icon icon-arrow-down" >
+                                    <div style={{ marginLeft: '64px', marginTop: '8px', }}>
+                                        <svg style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'none' }} enableBackground="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" className="shopee-svg-icon icon-arrow-down" >
                                             <g>
                                                 <path d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z"></path>
                                             </g>
@@ -134,7 +134,7 @@ const MainLayout: React.FC = () => {
                                             to="/segment"
                                             className={`dropdown-item ${activeLink === '/segment' ? 'active' : ''}`}
                                             style={activeLink === '/segment' ? { ...linkStyle, ...activeLinkStyle, marginTop: '9px', display: 'flex' } : { ...linkStyle, ...inactiveLinkStyle, marginTop: '9px', display: 'flex' }}
-                                            onClick={() => setActiveLink('/contacts')}
+                                            onClick={() => setActiveLink('/segment')}
                                         >
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M6.75 1.84351C3.70717 2.7992 1.5 5.64192 1.5 9.00015C1.5 13.1423 4.85786 16.5002 9 16.5002C12.3582 16.5002 15.201 14.293 16.1566 11.2502M12.2 9H14.9C15.4396 9 15.7094 9 15.9452 8.86029C16.1268 8.75263 16.3168 8.51729 16.3838 8.317C16.4707 8.05709 16.4243 7.84191 16.3315 7.41154C15.7132 4.54435 13.4557 2.28682 10.5885 1.66854C10.1581 1.57574 9.94291 1.52934 9.683 1.61621C9.48271 1.68315 9.24737 1.87315 9.13971 2.05483C9 2.29059 9 2.56039 9 3.1V5.8C9 6.9201 9 7.48016 9.21799 7.90798C9.40973 8.28431 9.71569 8.59027 10.092 8.78201C10.5198 9 11.0799 9 12.2 9Z" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -147,10 +147,12 @@ const MainLayout: React.FC = () => {
                             )}
                             <Link to='/forms' style={{
                                 textDecoration: 'none',
-                                backgroundColor: activeLink === '/forms' ? token.colorPrimaryBg : 'inherit',
                                 borderRadius: token.borderRadius,
                                 color: activeLink === '/forms' ? token.colorPrimaryText : 'inherit',
-                                border: activeLink === '/forms' ? '1px solid #1677ff' : 'none',
+                                ...(activeLink === '/forms' && {
+                                    backgroundColor: token.colorPrimaryBg,
+                                    border: '1px solid #1677ff'
+                                })
                             }}
                                 onClick={() => handleLinkClick('/forms')}>
                                 <div style={{ display: 'flex', marginLeft: '10px' }}>
@@ -158,11 +160,6 @@ const MainLayout: React.FC = () => {
                                         <g clipPath="url(#clip0_231_3957)">
                                             <path d="M5.25 6H12.75M5.25 9H9.75M5.25 12H11.25M7.9 16.5H10.1C12.3402 16.5 13.4603 16.5 14.316 16.064C15.0686 15.6805 15.6805 15.0686 16.064 14.316C16.5 13.4603 16.5 12.3402 16.5 10.1V7.9C16.5 5.65979 16.5 4.53968 16.064 3.68404C15.6805 2.93139 15.0686 2.31947 14.316 1.93597C13.4603 1.5 12.3402 1.5 10.1 1.5H7.9C5.65979 1.5 4.53968 1.5 3.68404 1.93597C2.93139 2.31947 2.31947 2.93139 1.93597 3.68404C1.5 4.53968 1.5 5.65979 1.5 7.9V10.1C1.5 12.3402 1.5 13.4603 1.93597 14.316C2.31947 15.0686 2.93139 15.6805 3.68404 16.064C4.53968 16.5 5.65979 16.5 7.9 16.5Z" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </g>
-                                        <defs>
-                                            <clipPath id="clip0_231_3957">
-                                                <rect width="18" height="18" fill="white" />
-                                            </clipPath>
-                                        </defs>
                                     </svg>
                                     <p style={{ marginLeft: '5px', height: '18px' }}>Forms</p>
                                 </div>
@@ -207,12 +204,12 @@ const MainLayout: React.FC = () => {
                             </Link>
                         </div>
                         <div>
-                            <Link to='#' style={{ display:'flex', textDecoration: 'none', color: 'black', marginTop: '15px', marginLeft: '5px' }}>
-                                <svg style={{marginTop:'-5px'}} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <Link to='#' style={{ display: 'flex', textDecoration: 'none', color: 'black', marginTop: '15px', marginLeft: '5px' }}>
+                                <svg style={{ marginTop: '-5px' }} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="24" height="24" rx="4" fill="#3490F6" />
                                     <path d="M16.6049 10.3828H14.4274C14.3876 10.1011 14.3064 9.85085 14.1838 9.6321C14.0611 9.41004 13.9037 9.22112 13.7115 9.06534C13.5192 8.90956 13.2972 8.79025 13.0453 8.70739C12.7967 8.62453 12.5266 8.5831 12.2349 8.5831C11.7079 8.5831 11.2489 8.71402 10.8578 8.97585C10.4667 9.23437 10.1634 9.61222 9.94798 10.1094C9.73254 10.6032 9.62482 11.2031 9.62482 11.9091C9.62482 12.6349 9.73254 13.2448 9.94798 13.7386C10.1667 14.2325 10.4717 14.6054 10.8627 14.8572C11.2538 15.1091 11.7063 15.2351 12.22 15.2351C12.5083 15.2351 12.7752 15.197 13.0204 15.1207C13.269 15.0445 13.4894 14.9335 13.6816 14.7876C13.8739 14.6385 14.033 14.4579 14.1589 14.2457C14.2882 14.0336 14.3777 13.7917 14.4274 13.5199L16.6049 13.5298C16.5486 13.9972 16.4077 14.4479 16.1824 14.8821C15.9603 15.313 15.6603 15.6991 15.2825 16.0405C14.908 16.3786 14.4605 16.647 13.9402 16.8459C13.4231 17.0414 12.8381 17.1392 12.1852 17.1392C11.277 17.1392 10.465 16.9337 9.74911 16.5227C9.03652 16.1117 8.47307 15.5168 8.05877 14.7379C7.64779 13.959 7.44229 13.0161 7.44229 11.9091C7.44229 10.7988 7.6511 9.85417 8.06871 9.07528C8.48633 8.2964 9.05309 7.70312 9.769 7.29545C10.4849 6.88447 11.2903 6.67898 12.1852 6.67898C12.7752 6.67898 13.322 6.76184 13.8258 6.92756C14.3329 7.09328 14.782 7.33523 15.1731 7.65341C15.5642 7.96828 15.8824 8.3544 16.1277 8.81179C16.3762 9.26918 16.5353 9.79285 16.6049 10.3828Z" fill="white" />
                                 </svg>
-                                <p style={{ marginLeft: '5px',marginTop:'-5px' }}> Corey Bergson</p>
+                                <p style={{ marginLeft: '5px', marginTop: '-5px' }}> Corey Bergson</p>
                             </Link>
                         </div>
                     </div>

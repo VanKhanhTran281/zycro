@@ -11,6 +11,7 @@ import ExampleList from "./pages/contacts/lists/CreateListItem/Use_example/Examp
 import Connect from "./pages/contacts/lists/CreateListItem/Connect/Connect";
 import ConnectToZapier from "./pages/contacts/lists/CreateListItem/Connect/Connect_to_z";
 import UploadContacts from "./pages/contacts/lists/CreateListItem/Upload/UploadContact";
+import CreateSegments from "./pages/contacts/segments/CreateSegment";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "/connecttozapier",
         element: <ConnectToZapier />,
+      },
+      {
+        path: "/createsegments",
+        element: <CreateSegments/>,
       },
       
     ],

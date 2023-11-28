@@ -1,0 +1,18 @@
+.upload-contacts-container{
+    margin-left: 45px;
+    width: 880px;
+    height: 475px;
+    margin-top: -205px;
+}
+.tab-container {
+    display: flex;
+  }
+  
+  .tab {
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .tab.active {
+    border-bottom: 2px solid #3490F6;
+  }

@@ -10,6 +10,7 @@ const middleware = getDefaultMiddleware({
 const store = configureStore({
   reducer: {
     user: userReducer,
+    
   },
   middleware,
 });

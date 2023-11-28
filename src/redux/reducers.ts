@@ -6,12 +6,14 @@ interface ContactState {
   data: ContactsData | null;
   loading: boolean;
   error: string | null;
+  file:string[]|number;
 }
 
 const initialState: ContactState = {
   data: null,
   loading: false,
   error: null,
+  file:[]
 };
 
 const userSlice = createSlice({
@@ -44,6 +46,13 @@ const userSlice = createSlice({
         }
       });
     },
+    addFile: (state, action: PayloadAction<string>) => {
+      if (Array.isArray(state.file)) { // Kiểm tra nếu state.file là một mảng
+        state.file.push(action.payload); // Đẩy tên file vào mảng
+      } else {
+        state.file = [action.payload]; // Nếu state.file không phải là mảng, khởi tạo state.file là một mảng chứa tên file
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchContact.pending, (state) => {
@@ -64,5 +73,5 @@ const userSlice = createSlice({
 });
 
 
-export const { updateContact,createContact,deleteContact} = userSlice.actions;
+export const { updateContact,createContact,deleteContact,addFile} = userSlice.actions;
 export default userSlice.reducer;

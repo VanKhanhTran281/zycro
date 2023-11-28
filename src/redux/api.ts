@@ -16,3 +16,9 @@ export const createContactData = async (userData: ContactsAddData): Promise<Cont
 export const deleteContactData = async (id: number): Promise<void> => {
   await axios.delete(`http://localhost:3000/use_example/${id}`);
 };
+export const uploadFile = async (file: File): Promise<void> => {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  await axios.post('http://localhost:3000/file', formData);
+};

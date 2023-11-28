@@ -12,7 +12,7 @@ const ExampleList=()=>{
                         </svg>
                         <p style={{fontWeight:'600',color:'black',marginLeft:'5px',marginTop:'-2px',fontSize:'16px'}}>Example list</p>
                     </Link>
-                    <Link to='/createlists'style={{textDecoration:'none'}}>
+                    <Link to='/createlists'style={{textDecoration:'none',width:'150px'}}>
                         <button className="contacts_button" style={{ display:'flex',borderRadius:'4px',marginLeft:'970px',marginTop:'16px',background:'#1677ff',color:'#fff',border:'none',width:'110px',height:'30px'}}>
                         <AddIcon style={{width:'20px',height:'20px',marginTop:'4px'}}/>
                         <p style={{marginTop:'7.5px',marginLeft:'8px',fontSize:'12px'}}>Add contacts</p>

@@ -1,35 +1,36 @@
 {
-    "use_example": [
-      { 
-        "id": 1, 
-        "first_name": "Khanh", 
-        "last_name": "Tran" ,
-        "email":"kk@gmail.com",
-        "phone":"(907) 586-7678",
-        "date_added":"10/22/2023",
-        "last_updated":"10//22/2023"
-      },
-      { 
-        "id": 2, 
-        "first_name": "Duy", 
-        "last_name": "Tran" ,
-        "email":"OlgaSem@gmail.com",
-        "phone":"(907) 586-7679",
-        "date_added":"10/22/2023",
-        "last_updated":"10/22/2023"
-      },
-      { 
-        "id": 3, 
-        "first_name": "Quang", 
-        "last_name": "Lê" ,
-        "email":"OlgaSem@gmail.com",
-        "phone":"(907) 586-8689",
-        "date_added":"10/22/2023",
-        "last_updated":"10/22/2023"
-      }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
-  }
+  "use_example": [
+    {
+      "id": 1,
+      "first_name": "Khanh",
+      "last_name": "Tran",
+      "email": "kk@gmail.com",
+      "phone": "(907) 586-7678",
+      "date_added": "10/22/2023",
+      "last_updated": "10//22/2023"
+    },
+    {
+      "id": 2,
+      "first_name": "Duy",
+      "last_name": "Tran",
+      "email": "OlgaSem@gmail.com",
+      "phone": "(907) 586-7679",
+      "date_added": "10/22/2023",
+      "last_updated": "10/22/2023"
+    },
+    {
+      "id": 3,
+      "first_name": "Quang",
+      "last_name": "Lê",
+      "email": "OlgaSem@gmail.com",
+      "phone": "(907) 586-8689",
+      "date_added": "10/22/2023",
+      "last_updated": "10/22/2023"
+    }
+  ],
+  "file": [
+    {
+      "id": 1
+    }
+  ]
+}
