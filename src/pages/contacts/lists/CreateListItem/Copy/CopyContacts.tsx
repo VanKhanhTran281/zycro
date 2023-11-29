@@ -40,7 +40,7 @@ const CopyContacts = () => {
                                         <path d="M16.5 7C16.5 8.875 14.25 13 9 13C3.75 13 1.5 8.875 1.5 7C1.5 5.125 3.75 1 9 1C14.25 1 16.5 5.125 16.5 7Z" stroke="#3490F6" stroke-width="1.2" stroke-linecap="round" />
                                         <path d="M11.25 7C11.25 8.24264 10.2426 9.25 9 9.25C7.75736 9.25 6.75 8.24264 6.75 7C6.75 5.75736 7.75736 4.75 9 4.75C10.2426 4.75 11.25 5.75736 11.25 7Z" stroke="#3490F6" stroke-width="1.2" stroke-linecap="round" />
                                     </svg>
-                                    <p style={{ marginTop: '-2px', marginLeft: '5px', marginBottom: '0' }}>Show the syntax example</p>
+                                    <p style={{ marginTop: '-2px', marginLeft: '5px', marginBottom: '0' }}>Show the syntax example kahanhskskssk</p>
                                 </div>
                             </Link>
                         </div>
