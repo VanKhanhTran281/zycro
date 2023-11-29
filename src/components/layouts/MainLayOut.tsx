@@ -97,11 +97,9 @@ const MainLayout: React.FC = () => {
                                         13.5 11.5 13.5H6.5C5.80964 13.5 5.25 12.9404 5.25 12.25C5.25 10.8693 6.36929 9.75 7.75 9.75H10.25Z" fill="#0068B9" />
                                     </svg>
                                     <p style={{ marginLeft: '5px', height: '18px' }}>Contacts</p>
-                                    <div style={{ marginLeft: '64px', marginTop: '8px', }}>
-                                        <svg style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'none' }} enableBackground="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" className="shopee-svg-icon icon-arrow-down" >
-                                            <g>
-                                                <path d="m11 2.5c0 .1 0 .2-.1.3l-5 6c-.1.1-.3.2-.4.2s-.3-.1-.4-.2l-5-6c-.2-.2-.1-.5.1-.7s.5-.1.7.1l4.6 5.5 4.6-5.5c.2-.2.5-.2.7-.1.1.1.2.3.2.4z"></path>
-                                            </g>
+                                    <div style={{ marginLeft: '57px', marginTop: '12px', }}>
+                                        <svg style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'none' }} width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 7L7 1L13 7" stroke="#0068B9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                 </div>

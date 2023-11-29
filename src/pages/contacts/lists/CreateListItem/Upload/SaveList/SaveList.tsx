@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 const SaveList = () => {
     const [activeTab, setActiveTab] = useState(1);
     const handleTabClick = (tabNumber: number) => {
         setActiveTab(tabNumber);
     };
+    const [inputValue, setInputValue] = useState('');
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.target.value);
+    };
     const [isDropdown, setIsDropdown] = useState<boolean>(true);
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('Khánh 1');
     const handleUpdateExisting = () => {
         setIsDropdown(!isDropdown);
     };
@@ -14,7 +19,7 @@ const SaveList = () => {
         setIsDropdown(!isDropdown);
     };
     return (
-        <div style={{marginTop:"30px"}}>
+        <div style={{ marginTop: "30px" }}>
             <h2 style={{ display: 'flex', marginBottom: '0', height: '31px' }}>
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect y="0.5" width="24" height="24" rx="12" fill="#E6E8EF" />
@@ -34,12 +39,14 @@ const SaveList = () => {
                 <div style={{ marginTop: "15px" }}>
                     {activeTab === 1 &&
                         <div>
-                            <label style={{ fontSize: '12px', fontWeight: "400" }}>List name</label>
-                            <div style={{ marginTop: '-3px', border: '1px solid #E0E4F0 ', borderRadius: '8px', width: '570px', height: '40px' }}>
-                                <input style={{ outline: 'none', border: 'none', width: '546px', height: '18px', marginLeft: '8px', marginTop: "10px" }} placeholder='Enter new list name' />
+                            <label style={{ fontSize: '12px', fontWeight: '400' }}>List name</label>
+                            <div style={{ marginTop: '-3px', border: 'none ', borderRadius: '8px', width: '570px', height: '40px' }}>
+                                <input style={{ outline: 'none', border: 'none', width: '546px', height: '18px', marginLeft: '8px', marginTop: '10px' }} 
+                                    placeholder='Enter new list name' value={inputValue} onChange={handleChange} />
                             </div>
                             <div>
-                                <button style={{ marginTop: '15px', height: '40px', width: '101px', border: '1px solid #1677ff', background: '#1677ff', color: '#fff', borderRadius: "8px" }}>Create list</button>
+                                <button style={{ marginTop: '15px', height: '40px', width: '101px', border: 'none', 
+                                    background: inputValue ? '#1677ff' : '#E6E8EF', color: inputValue ? '#fff' : '#ABB4C2', borderRadius: '8px' }}>Create list</button>
                             </div>
                         </div>
                     }

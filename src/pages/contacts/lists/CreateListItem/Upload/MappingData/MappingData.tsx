@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TableColumns from './TableColumns';
+import ContactAttribute from './ContactAttribute';
+import { data, DataAttribute } from './data'
 const MappingData = () => {
 
   return (
@@ -23,43 +26,41 @@ const MappingData = () => {
               <p style={{ fontSize: '20px', fontWeight: '500', lineHeight: '24px', marginBottom: '0px' }}>Table columns</p>
               <p style={{ fontSize: '16px', fontWeight: '400', lineHeight: '19.84px', marginBottom: '0px', marginTop: '24px', marginLeft: "201px" }}>0/4 mapped</p>
             </div>
-            <div style={{ height: '472px', marginTop: '16px', backgroundColor: '#F7F8FA', borderRadius: '12px',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center' }}>
-              <div style={{height:'94px',width:'372px' , border: '1px solid #E0E4F0'}}>
-                <div>
-                  <p>Last name</p>
-                  <p>e.g. Greefin, Tomson, Fox</p>
-                </div>
-                <div>
-                  <p>Drag attribute field here to map</p>
-                </div>
-              </div>
-              <div style={{height:'94px',width:'372px' , border: '1px solid #E0E4F0'}}>
-                <div>
-                  <p>Last name</p>
-                  <p>e.g. Greefin, Tomson, Fox</p>
-                </div>
-                <div>
-                  <p>Drag attribute field here to map</p>
-                </div>
-              </div>
+            <div style={{ height: '472px', marginTop: '16px', backgroundColor: '#F7F8FA', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              {data.map((e, i) => {
+                return <TableColumns key={i} data={e} />;
+              })}
             </div>
           </div>
           {/* Contact attribute */}
           <div style={{ width: "420px", height: '513px', marginLeft: '40px' }}>
             <div style={{ height: '24', display: 'flex', marginTop: '-17px' }}>
               <p style={{ fontSize: '20px', fontWeight: '500', lineHeight: '24px', marginBottom: '0px' }}>Contact attribute</p>
-              <Link to='#' style={{ textDecoration:'none',display:'flex',fontSize: '16px', fontWeight: '400', lineHeight: '19.84px', marginBottom: '0px', marginTop: '24px', marginLeft: "140px" }}>
+              <Link to='#' style={{ textDecoration: 'none', display: 'flex', fontSize: '16px', fontWeight: '400', lineHeight: '19.84px', marginBottom: '0px', marginTop: '24px', marginLeft: "140px" }}>
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.75 6.00024H6M11.25 6.00024H6M6 6.00024V0.750244M6 6.00024V11.2502" stroke="#3490F6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <p style={{color:'#3490F6',marginTop:'-3px',marginLeft:'8px'}}>Add a new field</p>
+                <p style={{ color: '#3490F6', marginTop: '-3px', marginLeft: '8px' }}>Add a new field</p>
               </Link>
             </div>
-            <div style={{ height: '473px', backgroundColor: '#F7F8FA', borderRadius: '12px' }}></div>
+            <div style={{ height: '473px', backgroundColor: '#F7F8FA', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <div style={{ width: '372px', height: '40px', borderRadius: '8px', border: '1px solid #E0E4F0', backgroundColor: "#FFFFFF", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 20.0002L16.364 16.3642M16.364 16.3642C17.9926 14.7355 19 12.4855 19 10.0002C19 5.02968 14.9706 1.00024 10 1.00024C5.02944 1.00024 1 5.02968 1 10.0002C1 14.9708 5.02944 19.0002 10 19.0002C12.4853 19.0002 14.7353 17.9929 16.364 16.3642Z" stroke="#586374" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+                <input style={{ outline: 'none', border: 'none', width: '324px', height: '18px', marginTop: "4px", marginLeft: "7px" }} placeholder='Search' />
+              </div>
+              <div style={{ border: '1px solid #E0E4F0', width: '372px', marginTop: "24px" }}></div>
+              {DataAttribute.map((e, i) => {
+                return <ContactAttribute key={i} data={e} />;
+              })}
+            </div>
           </div>
         </div>
         <div>
-          <button style={{ width: '148px', height: '40px', marginTop: '24px' }}>Confirm mapping</button>
+          <button style={{ width: '148px', height: '40px', marginTop: '24px',border:'none',borderRadius:"8px",backgroundColor:"#E6E8EF" }}>
+            <p style={{color:'#ABB4C2'}}>Confirm mapping</p>
+          </button>
         </div>
       </div>
       <div style={{ borderBottom: '1px solid #E0E4F0', marginTop: '30px' }}></div>

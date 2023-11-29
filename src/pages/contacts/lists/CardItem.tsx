@@ -49,7 +49,7 @@ const CardItem = () => {
                         <h3 style={{ marginBottom: '7px', marginTop: '7px', fontSize: '18px', lineHeight: '24px' }}>Copy / Paste</h3>
                         <p style={{ marginTop: '0', width: '193px' }}>Coppy and paste contacts from your .xls file</p>
                     </div>
-                    <Link to='#'><button className="buttonlist" style={{ border: '1px solid #1677ff', background: 'none', color: '#1677ff', borderRadius: "8px", width: '228px', height: '40px' }}>Copy contacts</button></Link>
+                    <Link to='/copycontacts'><button className="buttonlist" style={{ border: '1px solid #1677ff', background: 'none', color: '#1677ff', borderRadius: "8px", width: '228px', height: '40px' }}>Copy contacts</button></Link>
                 </div>
             </Card>
             <Card className="carditem at">
