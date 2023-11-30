@@ -99,7 +99,7 @@ const MainLayout: React.FC = () => {
                                     <p style={{ marginLeft: '5px', height: '18px' }}>Contacts</p>
                                     <div style={{ marginLeft: '57px', marginTop: '12px', }}>
                                         <svg style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'none' }} width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 7L7 1L13 7" stroke="#0068B9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M1 7L7 1L13 7" stroke="#0068B9" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </div>
                                 </div>

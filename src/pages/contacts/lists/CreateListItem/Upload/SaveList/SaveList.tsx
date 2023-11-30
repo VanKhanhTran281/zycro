@@ -40,7 +40,7 @@ const SaveList = () => {
                     {activeTab === 1 &&
                         <div>
                             <label style={{ fontSize: '12px', fontWeight: '400' }}>List name</label>
-                            <div style={{ marginTop: '-3px', border: 'none ', borderRadius: '8px', width: '570px', height: '40px' }}>
+                            <div style={{ marginTop: '-3px',border:'1px solid #E0E4F0', borderRadius: '8px', width: '570px', height: '40px' }}>
                                 <input style={{ outline: 'none', border: 'none', width: '546px', height: '18px', marginLeft: '8px', marginTop: '10px' }} 
                                     placeholder='Enter new list name' value={inputValue} onChange={handleChange} />
                             </div>
