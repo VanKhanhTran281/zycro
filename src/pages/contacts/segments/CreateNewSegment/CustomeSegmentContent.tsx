@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { fetchContact,deleteContact } from "../../../../../redux/actions";
+import { fetchContact,deleteContact } from "../../../../redux/actions";
+import {deleteContactData} from "../../../../redux/api"
 import { useSelector } from "react-redux";
-import { RootState, useAppDispatch } from "../../../../../redux/store";
-import {deleteContactData} from "../../../../../redux/api";
+import { RootState, useAppDispatch } from "../../../../redux/store";
 import { Table, Checkbox,message } from "antd";
-import "./Example.css"
-
-const ExampleListContent: React.FC = () => {
+import '../../lists/CreateListItem/Use_example/Example.css'
+import TagFilter from "./TagFilter";
+const CustomeSegmentContent = () => {
     const dispatch = useAppDispatch();
     const userData = useSelector((state: RootState) => state.user.data);
     const userDataArray = userData ? Object.values(userData) : [];
@@ -18,6 +17,7 @@ const ExampleListContent: React.FC = () => {
     useEffect(() => {
         fetchData()
     }, []);
+
     // 
     const [activeIndex, setActiveIndex] = useState(-1);
     const [showTooltip, setShowTooltip] = useState(false);
@@ -33,7 +33,6 @@ const ExampleListContent: React.FC = () => {
         setTooltipContent('');
     };
 
-
     // Xử lý sự kiện hiện form khi bấm vào dấu 3 chấm và thao tác sửa xóa
     const [showFormArray, setShowFormArray] = useState(Array(userDataArray.length).fill(false));
     const [selectedRowIndex, setSelectedRowIndex] = useState(-1); // Chỉ số dòng được chọn, ban đầu là -1
@@ -43,12 +42,14 @@ const ExampleListContent: React.FC = () => {
         } else {
             setSelectedRowIndex(index);
         }
-
         const updatedShowFormArray = [...showFormArray];
         updatedShowFormArray[index] = true;
         setShowFormArray(updatedShowFormArray);
     };
     const handleEditClick = (index: number) => {
+        // Xử lý sự kiện khi bấm nút "Sửa" ở dòng có chỉ số `index`
+
+        // Đặt selectedRowIndex về -1 để kiểu biến mất
         setSelectedRowIndex(-1);
     };
     const handleDeleteClick = async (user:ContactsData) => {
@@ -57,7 +58,6 @@ const ExampleListContent: React.FC = () => {
             console.log(user.id)
             dispatch(deleteContact(user.id));
             message.success("Contact deleted successfully");
-            
           } catch (error) {
             message.error("Failed to delete contact");
           }
@@ -157,18 +157,27 @@ const ExampleListContent: React.FC = () => {
             ),
         },
     ];
+// Phần Filter
+const [isDropdown, setIsDropdown] = useState<boolean>(true);
+const handleFilterClick =()=>{
+    setIsDropdown(!isDropdown)
+}
     return (
         <div style={{ display: 'grid' }}>
-            <div style={{ display: 'flex', width: '1200px', height: '64px', marginTop: '-375px', justifyContent: "space-between", padding: '24px 40px 0 40px' }}>
+            <div style={{ display: 'flex', width: '1200px', height: '64px', marginTop: '-375px', padding: '24px 40px 0 40px' }}>
                 <div>
                     <p style={{ fontSize: '16px', lineHeight: '19.84px' }}>{userDataArray.length} Contacts</p>
                 </div>
-                <div style={{ border: '1px solid #E0E4F0 ', marginTop: '7px', display: 'flex', borderRadius: '8px', width: '335px', height: '40px' }}>
-                    <svg style={{ padding: '8px' }} width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 20L16.364 16.364M16.364 16.364C17.9926 14.7353 19 12.4853 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19C12.4853 19 14.7353 17.9926 16.364 16.364Z" stroke="#586374" strokeWidth="1.2" strokeLinecap="round" />
+                <div onClick={handleFilterClick} style={{ marginLeft: '20px', border: '1px solid #E0E4F0', marginTop: '10px', width: '94px', height: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: "8px" }}>
+                    <svg style={{ marginLeft: "-3px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.9101 1.3335H3.08987C2.48795 1.3335 2 1.82145 2 2.42337C2 3.83126 2.67993 5.15249 3.82558 5.97082L5.11111 6.88905C6.08731 7.58633 6.66667 8.71214 6.66667 9.91179V13.3335C6.66667 14.0699 7.26362 14.6668 8 14.6668C8.73638 14.6668 9.33333 14.0699 9.33333 13.3335V9.91179C9.33333 8.71214 9.91269 7.58633 10.8889 6.88905L12.1744 5.97082C13.3201 5.15249 14 3.83126 14 2.42337C14 1.82145 13.512 1.3335 12.9101 1.3335Z" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <input style={{ outline: 'none', border: 'none', width: '287px', height: '18px', marginLeft: '5px', marginTop: "13px" }} placeholder="Search by email, name or phone..." />
+                    <p style={{ marginLeft: '5px' }}>Filter</p>
+                    <svg style={{transform: !isDropdown ? 'rotate(180deg)' : 'none', marginLeft: '10px' }} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                 </div>
+                {!isDropdown && <TagFilter/>}
             </div>
             <div style={{ width: '1200px', marginTop: '-477px', padding: '0 40px 0 40px' }}>
                 {userDataArray.length > 0 && (
@@ -180,4 +189,4 @@ const ExampleListContent: React.FC = () => {
 
     )
 }
-export default ExampleListContent
+export default CustomeSegmentContent

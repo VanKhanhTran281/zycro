@@ -13,6 +13,7 @@ import ConnectToZapier from "./pages/contacts/lists/CreateListItem/Connect/Conne
 import UploadContacts from "./pages/contacts/lists/CreateListItem/Upload/UploadContact";
 import CopyContacts from "./pages/contacts/lists/CreateListItem/Copy/CopyContacts";
 import CreateSegments from "./pages/contacts/segments/CreateSegment";
+import CustomeSegment from "./pages/contacts/segments/CreateNewSegment/CustomeSegment";
 
 export const router = createBrowserRouter([
   {
@@ -26,22 +27,6 @@ export const router = createBrowserRouter([
       {
         path: "/contacts",
         element: <Contacts />,
-      },
-      {
-        path: "/forms",
-        element: <Forms />,
-      },
-      {
-        path: "/landingpage",
-        element: <LandingPage />,
-      },
-      {
-        path: "/campaign",
-        element: <Campaign />,
-      },
-      {
-        path: "/segment",
-        element: <Segment />,
       },
       {
         path: "/createlists",
@@ -68,10 +53,29 @@ export const router = createBrowserRouter([
         element: <ConnectToZapier />,
       },
       {
+        path: "/segment",
+        element: <Segment />,
+      },
+      {
         path: "/createsegments",
         element: <CreateSegments/>,
       },
-      
+      {
+        path: "/customesegment",
+        element: <CustomeSegment/>,
+      },
+      {
+        path: "/forms",
+        element: <Forms />,
+      },
+      {
+        path: "/landingpage",
+        element: <LandingPage />,
+      },
+      {
+        path: "/campaign",
+        element: <Campaign />,
+      },
     ],
   },
 ]);

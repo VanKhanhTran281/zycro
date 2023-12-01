@@ -1,7 +1,8 @@
+import React from "react";
 import { Link} from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 import ExampleListContent from "./ExampleListContent";
-const ExampleList=()=>{
+const ExampleList: React.FC = () => {
     return (
         <div style={{ display: 'grid' }}>
             <div style={{width:'1300px',height:'62px',borderBottom:'1px solid #31363669'}}>
@@ -21,7 +22,6 @@ const ExampleList=()=>{
                 </div>
             </div>
             <ExampleListContent/>
-            
         </div>
     )
 }
