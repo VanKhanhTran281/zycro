@@ -1,10 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import logo from '../../img/logo.jpg'
 import './main.css';
-import { theme } from 'antd';
+// import { theme } from 'antd';
 import { useState } from 'react'
 
-const { useToken } = theme;
+// const { useToken } = theme;
 interface Token {
     colorPrimaryBg: string;
     borderRadius: string;

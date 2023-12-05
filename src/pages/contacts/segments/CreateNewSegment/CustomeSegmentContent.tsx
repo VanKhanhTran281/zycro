@@ -168,7 +168,7 @@ const handleFilterClick =()=>{
                 <div>
                     <p style={{ fontSize: '16px', lineHeight: '19.84px' }}>{userDataArray.length} Contacts</p>
                 </div>
-                <div onClick={handleFilterClick} style={{ marginLeft: '20px', border: '1px solid #E0E4F0', marginTop: '10px', width: '94px', height: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: "8px" }}>
+                <div onClick={handleFilterClick} style={{ marginLeft: '20px', border: !isDropdown?'1px solid #3490F6':'1px solid #E0E4F0', marginTop: '10px', width: '94px', height: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: "8px" }}>
                     <svg style={{ marginLeft: "-3px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.9101 1.3335H3.08987C2.48795 1.3335 2 1.82145 2 2.42337C2 3.83126 2.67993 5.15249 3.82558 5.97082L5.11111 6.88905C6.08731 7.58633 6.66667 8.71214 6.66667 9.91179V13.3335C6.66667 14.0699 7.26362 14.6668 8 14.6668C8.73638 14.6668 9.33333 14.0699 9.33333 13.3335V9.91179C9.33333 8.71214 9.91269 7.58633 10.8889 6.88905L12.1744 5.97082C13.3201 5.15249 14 3.83126 14 2.42337C14 1.82145 13.512 1.3335 12.9101 1.3335Z" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
