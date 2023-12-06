@@ -1,8 +1,19 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link} from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 import ExampleListContent from "./ExampleListContent";
+import AddForm from "./AddForm";
+import { useAppDispatch } from "../../../../../redux/store";
+import { fetchContact } from "../../../../../redux/actions";
 const ExampleList: React.FC = () => {
+    const dispatch=useAppDispatch()
+    const [showAdd,setShowAdd] =useState(false)
+    const handleAddForm=()=>{
+        setShowAdd(!showAdd)
+    }
+    const handleCreateContact = () => {
+        dispatch(fetchContact());
+      };
     return (
         <div style={{ display: 'grid' }}>
             <div style={{width:'1300px',height:'62px',borderBottom:'1px solid #31363669'}}>
@@ -13,13 +24,14 @@ const ExampleList: React.FC = () => {
                         </svg>
                         <p style={{fontWeight:'600',color:'black',marginLeft:'5px',marginTop:'-2px',fontSize:'16px'}}>Example list</p>
                     </Link>
-                    <Link to='/createlists'style={{textDecoration:'none',width:'150px'}}>
+                    <Link to='#'onClick={handleAddForm} style={{textDecoration:'none',width:'150px'}}>
                         <button className="contacts_button" style={{ display:'flex',borderRadius:'4px',marginLeft:'970px',marginTop:'16px',background:'#1677ff',color:'#fff',border:'none',width:'110px',height:'30px'}}>
                         <AddIcon style={{width:'20px',height:'20px',marginTop:'4px'}}/>
-                        <p style={{marginTop:'7.5px',marginLeft:'8px',fontSize:'12px'}}>Add contacts</p>
+                        <p  style={{marginTop:'7.5px',marginLeft:'8px',fontSize:'12px'}}>Add contacts</p>
                         </button>
                     </Link>
                 </div>
+                {showAdd&& <AddForm onClick={handleAddForm} onCreateContact={handleCreateContact}/>} 
             </div>
             <ExampleListContent/>
         </div>

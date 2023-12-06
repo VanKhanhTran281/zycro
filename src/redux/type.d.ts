@@ -12,6 +12,4 @@ interface ContactsData {
     last_name: string;
     email: string;
     phone: string;
-    date_added: string;
-    last_updated: string;
   }

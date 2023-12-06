@@ -14,7 +14,7 @@ export const updateContact = createAsyncThunk<ContactsData, Partial<ContactsData
     return updatedContactData;
   }
 );
-export const createUser = createAsyncThunk<ContactsData, ContactsAddData>(
+export const createContact = createAsyncThunk<ContactsData, ContactsAddData>(
   'user/createContact',
   async (userData) => {
     const createdContactData = await createContactData(userData);
