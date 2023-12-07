@@ -3,17 +3,19 @@ import { fetchContact, deleteContact } from "../../../../redux/actions";
 import { deleteContactData } from "../../../../redux/api"
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../../../redux/store";
-import { Table, Checkbox, message } from "antd";
+import { Table, Checkbox } from "antd";
 import '../../lists/CreateListItem/Use_example/Example.css'
 import './CreateNewSegment.css'
 import TagFilter from "./children/TagFilter";
 import UpdateForm from "./children/UpdateForm";
+import FilterAudience from "./children/FilterAudience";
+import { fail } from "assert";
+import FilterPerson from "./children/FilterPerson";
 const CustomeSegmentContent = () => {
     const dispatch = useAppDispatch();
     const userData = useSelector((state: RootState) => state.user.data);
     const userDataArray = userData ? Object.values(userData) : [];
     const fetchData = () => {
-
         dispatch(fetchContact());
     }
     useEffect(() => {
@@ -50,10 +52,10 @@ const CustomeSegmentContent = () => {
         updatedShowFormArray[index] = true;
         setShowFormArray(updatedShowFormArray);
     };
-    const handleUpdateContact = (updateContact:ContactsData) => {
+    const handleUpdateContact = (updateContact: ContactsData) => {
         dispatch(fetchContact());
-      };
-    const handleEditClick = (record:ContactsData) => {
+    };
+    const handleEditClick = (record: ContactsData) => {
         setShowUpdate(!showUpdate)
         setValueUd(record)
         setSelectedRowIndex(-1);
@@ -62,7 +64,7 @@ const CustomeSegmentContent = () => {
         await deleteContactData(user.id);
         dispatch(deleteContact(user.id));
         dispatch(fetchContact());
-        setSelectedRowIndex(-1);    
+        setSelectedRowIndex(-1);
     };
     const columns = [
         {
@@ -118,8 +120,8 @@ const CustomeSegmentContent = () => {
             title: 'Actions',
             key: 'actions',
             render: (_: any, record: ContactsData, index: number) => (
-                <div style={{cursor:'pointer'}} onClick={() => handleThreeDotsClick(index)}>
-                    <svg style={{ fontSize: '30px', marginLeft: '15px' }}  width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div style={{ cursor: 'pointer' }} onClick={() => handleThreeDotsClick(index)}>
+                    <svg style={{ fontSize: '30px', marginLeft: '15px' }} width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2.25 1.5C2.6625 1.5 3 1.8375 3 2.25C3 2.6625 2.6625 3 2.25 3M2.25 1.5C1.8375 1.5 1.5 1.8375 1.5 2.25C1.5 2.6625 1.8375 3 2.25 3M2.25 1.5V3M6.75 1.5C7.1625 1.5 7.5 1.8375 7.5 2.25C7.5 2.6625 7.1625 3 6.75 3M6.75 1.5C6.3375 1.5 6 1.8375 6 2.25C6 2.6625 6.3375 3 6.75 3M6.75 1.5V3M11.75 1.5C12.1625 1.5 12.5 1.8375 12.5 2.25C12.5 2.6625 12.1625 3 11.75 3M11.75 1.5C11.3375 1.5 11 1.8375 11 2.25C11 2.6625 11.3375 3 11.75 3M11.75 1.5V3" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     {showFormArray[index] && selectedRowIndex === index && (
@@ -139,13 +141,13 @@ const CustomeSegmentContent = () => {
                             }}
                         >
                             <div style={{ marginTop: '-5px' }}>
-                                <span style={{ display: 'flex', alignItems: 'center', marginLeft: '10px',cursor:'pointer' }} onClick={() => handleEditClick(record)}>
+                                <span style={{ display: 'flex', alignItems: 'center', marginLeft: '10px', cursor: 'pointer' }} onClick={() => handleEditClick(record)}>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12.4999 4.1665C12.4999 6.00745 13.9923 7.49984 15.8333 7.49984M3.33325 16.6665L3.78655 14.4C3.92781 13.6937 3.99844 13.3406 4.1276 13.0113C4.24225 12.719 4.39091 12.4412 4.57051 12.1837C4.77286 11.8936 5.02751 11.6389 5.53681 11.1296L13.3334 3.33316C13.5678 3.09867 13.6851 2.98143 13.7973 2.89699C14.5095 2.36092 15.4905 2.36093 16.2028 2.89702C16.3149 2.98146 16.4322 3.09871 16.6667 3.33319V3.33319C16.9011 3.56767 17.0184 3.68492 17.1028 3.79711C17.6389 4.50933 17.6389 5.49033 17.1028 6.20255C17.0184 6.31474 16.9011 6.43198 16.6666 6.66645L8.87012 14.463C8.36083 14.9723 8.10618 15.2269 7.81605 15.4293C7.55853 15.6089 7.28076 15.7575 6.98848 15.8722C6.65919 16.0013 6.30605 16.0719 5.59978 16.2132L3.33325 16.6665Z" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     <p style={{ display: 'flex', alignItems: 'center', marginLeft: '10px' }} >Edit contact</p>
                                 </span>
-                                <span style={{ display: 'flex', alignItems: 'center', marginLeft: '10px',cursor:'pointer' }} onClick={() => handleDeleteClick(record)}>
+                                <span style={{ display: 'flex', alignItems: 'center', marginLeft: '10px', cursor: 'pointer' }} onClick={() => handleDeleteClick(record)}>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3.33341 4.1665L3.90098 13.815C3.99452 15.4053 4.0413 16.2005 4.38071 16.8039C4.67949 17.3351 5.13299 17.7627 5.68082 18.0298C6.30313 18.3332 7.09965 18.3332 8.69269 18.3332H11.3075C12.9005 18.3332 13.697 18.3332 14.3193 18.0298C14.8672 17.7627 15.3207 17.3351 15.6195 16.8039C15.9589 16.2005 16.0056 15.4053 16.0992 13.815L16.6667 4.1665M3.33341 4.1665H1.66675M3.33341 4.1665H16.6667M16.6667 4.1665H18.3334M13.3334 4.1665L13.0471 3.30756C12.8504 2.71744 12.752 2.42238 12.5696 2.20424C12.4085 2.0116 12.2016 1.8625 11.968 1.77059C11.7033 1.6665 11.3923 1.6665 10.7703 1.6665H9.2299C8.60787 1.6665 8.29685 1.6665 8.03221 1.77059C7.79852 1.8625 7.59164 2.0116 7.43055 2.20424C7.24812 2.42238 7.14977 2.71744 6.95306 3.30756L6.66675 4.1665M8.33342 8.33317V14.1665M11.6667 8.33317V11.6665" stroke="#E61D41" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
@@ -159,31 +161,52 @@ const CustomeSegmentContent = () => {
         },
     ];
     // Phần Filter
-    const [isDropdown, setIsDropdown] = useState<boolean>(true);
+    const [isDropdown, setIsDropdown] = useState<boolean>(false);
     const handleFilterClick = () => {
-        setIsDropdown(!isDropdown)
-    }
+        setIsDropdown(!isDropdown);
+        setIsFilterAudience(false);
+        setIsFilterPerson(false);
+    };
+    const [isFilterAudience, setIsFilterAudience] = useState<boolean>(false);
+    const handleFilterAudience = () => {
+        setIsFilterAudience(!isFilterAudience);
+        setIsDropdown(false);
+        setIsFilterPerson(false);
+    };
+    const [isFilterPerson, setIsFilterPerson] = useState<boolean>(false);
+    const handleFilterPerson = () => {
+        setIsFilterPerson(!isFilterPerson);
+        setIsFilterAudience(false);
+        setIsDropdown(false);
+    };
+    const handleBack = () => {
+        setIsFilterPerson(false);
+        setIsFilterAudience(false);
+        setIsDropdown(true);
+    };
     return (
-        <div  style={{ display: 'grid'}}>
-            <div style={{ display: 'flex', width: '1200px', height: '64px',marginLeft:'45px',marginBottom:'0'}}>
+        <div style={{ display: 'grid' }}>
+            <div style={{ display: 'flex', width: '1200px', height: '64px', marginLeft: '45px', marginBottom: '0' }}>
                 <div>
                     <p style={{ fontSize: '16px', lineHeight: '19.84px' }}>{userDataArray.length} Contacts</p>
                 </div>
-                <div onClick={handleFilterClick} style={{ marginLeft: '20px', border: !isDropdown ? '1px solid #3490F6' : '1px solid #E0E4F0', marginTop: '10px', width: '94px', height: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: "8px" }}>
+                <div onClick={handleFilterClick} style={{ marginLeft: '20px', border: isDropdown || isFilterAudience || isFilterPerson ? '1px solid #3490F6' : '1px solid #E0E4F0', marginTop: '10px', width: '94px', height: '32px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: "8px" }}>
                     <svg style={{ marginLeft: "-3px" }} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.9101 1.3335H3.08987C2.48795 1.3335 2 1.82145 2 2.42337C2 3.83126 2.67993 5.15249 3.82558 5.97082L5.11111 6.88905C6.08731 7.58633 6.66667 8.71214 6.66667 9.91179V13.3335C6.66667 14.0699 7.26362 14.6668 8 14.6668C8.73638 14.6668 9.33333 14.0699 9.33333 13.3335V9.91179C9.33333 8.71214 9.91269 7.58633 10.8889 6.88905L12.1744 5.97082C13.3201 5.15249 14 3.83126 14 2.42337C14 1.82145 13.512 1.3335 12.9101 1.3335Z" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <p style={{ marginLeft: '5px',cursor:'pointer' }}>Filter</p>
-                    <svg style={{ transform: !isDropdown ? 'rotate(180deg)' : 'none', marginLeft: '10px' }} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p style={{ marginLeft: '5px', cursor: 'pointer' }}>Filter</p>
+                    <svg style={{ transform: isDropdown || isFilterAudience || isFilterPerson ? 'rotate(180deg)' : 'none', marginLeft: '10px' }} width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L9 1" stroke="#1A2433" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </div>
-                {!isDropdown && <TagFilter />}
+                {!isFilterAudience && isDropdown && (<TagFilter handleFilterAudience={handleFilterAudience} handleFilterPerson={handleFilterPerson} />)}
+                {isFilterAudience && <FilterAudience handleBack={handleBack} />}
+                {isFilterPerson && <FilterPerson handleBack={handleBack} />}
             </div>
             {userDataArray.length > 0 && (
-                <Table style={{width:'1200px',marginLeft:'45px'}} dataSource={userDataArray} columns={columns} pagination={false} className="your-table" />
+                <Table style={{ width: '1200px', marginLeft: '45px' }} dataSource={userDataArray} columns={columns} pagination={false} className="your-table" />
             )}
-            {!showUpdate&&<UpdateForm valueUd={valueUd} onUpdate={handleUpdateContact} handleEditClick={handleEditClick} />}
+            {!showUpdate && <UpdateForm valueUd={valueUd} onUpdate={handleUpdateContact} handleEditClick={handleEditClick} />}
         </div>
     )
 }

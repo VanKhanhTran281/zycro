@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useAppDispatch } from '../../../../../redux/store';
 import { updateContact, fetchContact } from '../../../../../redux/actions'
 import { patchContactData } from '../../../../../redux/api';
+import dayjs from 'dayjs';
+import 'dayjs/locale/en';
 interface ChildComponentProps {
     handleEditClick: (record: ContactsData) => void;
     onUpdate: (updateContact: ContactsData) => void;
@@ -29,12 +31,14 @@ const UpdateForm: React.FC<ChildComponentProps> = ({ handleEditClick, valueUd, o
         event.preventDefault();
 
         if (valueUd && valueUd.id !== undefined) {
+            const currentDate = dayjs().locale('en').format('MMM DD, YYYY');
             const updatedContacts: ContactsData = {
                 ...valueUd,
                 first_name: updatedContact.first_name || valueUd?.first_name,
                 last_name: updatedContact.last_name || valueUd?.last_name,
                 email: updatedContact.email || valueUd?.email,
                 phone: updatedContact.phone || valueUd?.phone,
+                last_updated: currentDate
             };
             const updatedUserData = await patchContactData(updatedContacts);
             await dispatch(updateContact(updatedUserData));

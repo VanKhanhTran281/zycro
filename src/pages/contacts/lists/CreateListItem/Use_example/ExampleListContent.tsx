@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { fetchContact,deleteContact } from "../../../../../redux/actions";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../../../../redux/store";
 import {deleteContactData} from "../../../../../redux/api";
-import { Table, Checkbox,message } from "antd";
+import { Table, Checkbox} from "antd";
 import "./Example.css"
 import UpdateForm from "../../../segments/CreateNewSegment/children/UpdateForm";
 
