@@ -5,9 +5,9 @@
       "first_name": "Duy",
       "last_name": "Trần",
       "email": "OlgaSem@gmail.com",
-      "phone": "(907) 586-7778",
+      "phone": "(907) 586-7777",
       "date_added": "10/22/2023",
-      "last_updated": "Dec 07, 2023"
+      "last_updated": "Dec 08, 2023"
     },
     {
       "id": 2,
@@ -41,9 +41,9 @@
       "first_name": "Duy",
       "last_name": "Trần",
       "email": "OlgaSem@gmail.com",
-      "phone": "(907) 586-7679",
+      "phone": "(907) 586-7654",
       "date_added": "10/22/2023",
-      "last_updated": "10/22/2023"
+      "last_updated": "Dec 08, 2023"
     },
     {
       "id": 6,
@@ -84,34 +84,37 @@
     {
       "first_name": "Trần",
       "last_name": "Khoa",
-      "email": "khoa123@gmail.com",
-      "phone": "0963482670",
+      "email": "khoa333@gmail.com",
+      "phone": "(907) 567-8912",
       "date_added": "Dec 07, 2023",
-      "last_updated": "Dec 07, 2023",
+      "last_updated": "Dec 08, 2023",
       "id": 16
     },
     {
       "first_name": "Tuyến",
       "last_name": "Đồng",
-      "email": "dongtuyen@gmail.com",
-      "phone": "+84987654321",
+      "email": "Dongtuyen@gmail.com",
+      "phone": "(907) 567-8901",
       "date_added": "Dec 07, 2023",
-      "last_updated": "Dec 07, 2023",
+      "last_updated": "Dec 08, 2023",
       "id": 17
     },
     {
       "first_name": "Trang",
       "last_name": "Lê",
       "email": "trangle@gmail.com",
-      "phone": " (907) 123-456",
+      "phone": " (907) 123-4567",
       "date_added": "Dec 07, 2023",
-      "last_updated": "Dec 07, 2023",
+      "last_updated": "Dec 08, 2023",
       "id": 18
     }
   ],
   "file": [
     {
       "id": 1
+    },
+    {
+      "id": 2
     }
   ]
 }

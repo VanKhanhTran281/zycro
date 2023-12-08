@@ -43,9 +43,9 @@ const MainLayout: React.FC = () => {
         color: 'inherit',
     };
     return (
-        <div style={{ display: 'flex' }}>
-            <header style={{ width: '220px', height: '800px', backgroundColor: '#f1f2f269' }}>
-                <div >
+        <div style={{ display: 'flex', overflowX: 'hidden' }}>
+            <header style={{  height: '800px', backgroundColor: '#f1f2f269'}}>
+                <div style={{width: '240px'}}>
                     <div style={{ display: 'grid', marginRight: '19px', fontWeight: '600', paddingLeft: "15px ", paddingTop: '10px' }}>
                         <div style={{ marginLeft: '-13px' }}><img src={logo} alt="" /></div>
                         <div style={{ display: 'grid', marginTop: '30px', borderBottom: '1px solid #E0E4F0' }}>
@@ -97,7 +97,7 @@ const MainLayout: React.FC = () => {
                                         13.5 11.5 13.5H6.5C5.80964 13.5 5.25 12.9404 5.25 12.25C5.25 10.8693 6.36929 9.75 7.75 9.75H10.25Z" fill="#0068B9" />
                                     </svg>
                                     <p style={{ marginLeft: '5px', height: '18px' }}>Contacts</p>
-                                    <div style={{ marginLeft: '57px', marginTop: '12px', }}>
+                                    <div style={{ marginLeft: '80px', marginTop: '12px', }}>
                                         <svg style={{ transform: isDropdownOpen ? 'rotate(180deg)' : 'none' }} width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1 7L7 1L13 7" stroke="#0068B9" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>

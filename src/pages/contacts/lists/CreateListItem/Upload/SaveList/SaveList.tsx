@@ -10,7 +10,7 @@ const SaveList = () => {
         setInputValue(event.target.value);
     };
     const [isDropdown, setIsDropdown] = useState<boolean>(true);
-    const [selectedOption, setSelectedOption] = useState('Khánh 1');
+    const [selectedOption, setSelectedOption] = useState('August campaign');
     const handleUpdateExisting = () => {
         setIsDropdown(!isDropdown);
     };
@@ -66,16 +66,16 @@ const SaveList = () => {
                                 <div style={{ borderRadius: '8px', border: '0.5px solid #E0E4F0', marginTop: '-50px', width: "570px", height: '168px', position: 'relative', backgroundColor: '#fff', zIndex: '9999' }}>
                                     <div style={{ display: 'grid', marginTop: '20px', marginLeft: '18px' }}>
                                         <div style={{ marginTop: '-3px', width: '570px', height: '40px' }}>
-                                            <span onClick={() => handleOptionClick('Khánh 1')}>Khánh 1</span>
+                                            <span onClick={() => handleOptionClick('Selector Text')}>Selector Text</span>
                                         </div>
                                         <div style={{ marginTop: '-3px', width: '570px', height: '40px' }}>
-                                            <span onClick={() => handleOptionClick('Khánh 2')}>Khánh 2</span>
+                                            <span onClick={() => handleOptionClick('Selector Text')}>Selector Text</span>
                                         </div>
                                         <div style={{ marginTop: '-3px', width: '570px', height: '40px' }}>
-                                            <span onClick={() => handleOptionClick('Khánh 3')}>Khánh 3</span>
+                                            <span onClick={() => handleOptionClick('Selector Text')}>Selector Text</span>
                                         </div>
                                         <div style={{ marginTop: '-3px', width: '570px', height: '40px' }}>
-                                            <span onClick={() => handleOptionClick('Khánh 4')}>Khánh 4</span>
+                                            <span onClick={() => handleOptionClick('Selector Text')}>Selector Text</span>
                                         </div>
                                     </div>
                                 </div>
