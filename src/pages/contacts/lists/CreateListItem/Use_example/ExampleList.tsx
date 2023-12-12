@@ -19,7 +19,7 @@ const ExampleList: React.FC = () => {
         dispatch(fetchContact());
     };
     return (
-        <div style={{ display: 'grid' }}>
+        <div >
             <div style={{ width: '1300px', height: '62px', borderBottom: '1px solid #31363669' }}>
                 <div style={{ display: 'flex' }}>
                     <Link to='/createlists' style={{ textDecoration: 'none', display: 'flex', marginLeft: '45px', marginTop: '20px' }}>

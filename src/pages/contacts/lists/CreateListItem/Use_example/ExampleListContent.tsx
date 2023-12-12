@@ -158,8 +158,25 @@ const ExampleListContent: React.FC = () => {
             ),
         },
     ];
+    
+    // Xử lý tìm kiếm
+    const [searchValue, setSearchValue] = useState<string>("");
+    const filteredContact = userDataArray.filter((record) => {
+        const fullName = `${record.first_name} ${record.last_name}`.toLowerCase();
+        const email = record.email.toLowerCase();
+        const phone = record.phone.toLowerCase();
+        const searchLowercase = searchValue.toLowerCase();
+    
+        return (
+            fullName.includes(searchLowercase) ||
+            email.includes(searchLowercase) ||
+            phone.includes(searchLowercase)
+        );
+    });
+
+
     return (
-        <div style={{ display: 'grid'}}>
+        <div >
             <div style={{ display: 'flex', width: '1200px', height: '64px',justifyContent: "space-between", padding: '24px 40px 0 40px' }}>
                 <div>
                     <p style={{ fontSize: '16px', lineHeight: '19.84px' }}>{userDataArray.length} Contacts</p>
@@ -168,11 +185,12 @@ const ExampleListContent: React.FC = () => {
                     <svg style={{ padding: '8px' }} width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 20L16.364 16.364M16.364 16.364C17.9926 14.7353 19 12.4853 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19C12.4853 19 14.7353 17.9926 16.364 16.364Z" stroke="#586374" strokeWidth="1.2" strokeLinecap="round" />
                     </svg>
-                    <input style={{ outline: 'none', border: 'none', width: '287px', height: '18px', marginLeft: '5px', marginTop: "13px" }} placeholder="Search by email, name or phone..." />
+                    <input style={{ outline: 'none', border: 'none', width: '287px', height: '18px', marginLeft: '5px', marginTop: "13px" }} placeholder="Search by email, name or phone..." value={searchValue}
+    onChange={(e) => setSearchValue(e.target.value)}/>
                 </div>
             </div>
             {userDataArray.length > 0 && (
-                <Table style={{width:'1200px',marginLeft:'45px'}} dataSource={userDataArray} columns={columns} pagination={false} className="your-table" />
+                <Table style={{width:'1200px',marginLeft:'45px'}} dataSource={filteredContact} columns={columns} pagination={false} className="your-table" />
             )}
             {!showUpdate&&<UpdateForm valueUd={valueUd} onUpdate={handleUpdateContact} handleEditClick={handleEditClick} />}
         </div>

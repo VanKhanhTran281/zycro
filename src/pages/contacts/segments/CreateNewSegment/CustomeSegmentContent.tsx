@@ -9,7 +9,6 @@ import './CreateNewSegment.css'
 import TagFilter from "./children/TagFilter";
 import UpdateForm from "./children/UpdateForm";
 import FilterAudience from "./children/FilterAudience";
-import { fail } from "assert";
 import FilterPerson from "./children/FilterPerson";
 const CustomeSegmentContent = () => {
     const dispatch = useAppDispatch();
